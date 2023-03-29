@@ -1,16 +1,44 @@
 import React from 'react';
-import styles from './index.module.scss';
-import Header from './components/header';
-import AxiosInstance from '@/hooks/useRequest/axiosInstance';
-const Index: React.FC = () => {
-  React.useEffect(() => {
-    AxiosInstance.request({ url: 'api/v1/home' });
-  }, []);
 
+import styles from './index.module.scss';
+
+import Header from './components/header';
+import NavBar from './components/navbar';
+import Popular from './components/popular';
+import Loading from "@/components/Loading";
+import {ErrorBlock ,Swiper , Space } from "@/bases";
+
+import useRequest from "@/hooks/useRequest";
+import { px2rem } from '@/utils/unit';
+
+
+import api from '@/pages/home/api'
+
+const Index: React.FC = () => {
+const {data,error} = useRequest<any>({url:api.getHomeData})
+  if(error) {
+    return <ErrorBlock  />
+  }
+  if(!data){
+    return  <Loading />
+  }
   return (
     <div className={styles.home}>
       <Header />
-      Index
+
+     <Space gap={px2rem(20)}  direction='vertical' >
+     <Swiper autoplay loop  defaultIndex={0}  style={{'--border-radius':'12px'}} >
+        {
+          data!.banner.map((item,index)=>(
+             <Swiper.Item key={index} >
+              <img src={item.src} alt={item.alt} height='100%' width='100%' />
+            </Swiper.Item>
+          ))
+        }
+      </Swiper>
+      <NavBar></NavBar>
+      <Popular></Popular>
+     </Space>
     </div>
   );
 };

@@ -20,3 +20,4 @@ const Header: React.FC = React.memo(() => {
 });
 
 export default Header;
+Header.displayName = 'Header'

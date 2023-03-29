@@ -9,7 +9,7 @@ import Search from '@/pages/search';
 import Chapter from '@/pages/chapter';
 import Booklist from '@/pages/bookList';
 import Category from '@/pages/category';
-import BookList from '@/pages/bookList';
+
 
 const Router: React.FC = React.memo(() => {
   const element = useRoutes([
@@ -35,7 +35,7 @@ const Router: React.FC = React.memo(() => {
     },
     {
       path: '/book-list/:key',
-      element: <BookList />,
+      element: <Booklist />,
     },
     {
       path: '/book/:bookId/:chapterId',

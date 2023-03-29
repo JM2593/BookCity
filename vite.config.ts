@@ -10,4 +10,16 @@ export default defineConfig({
       '@': resolve('src'),
     },
   },
+  server:{
+    proxy:{
+      '/api':{
+        target:'http://106.14.223.52',
+        changeOrigin:true
+      },
+      '/public':{
+        target:'http://106.14.223.52',
+        changeOrigin:true
+      }
+    }
+  }
 });
