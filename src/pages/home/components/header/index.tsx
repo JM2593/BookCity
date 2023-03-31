@@ -5,7 +5,7 @@ const Header: React.FC = React.memo(() => {
   return (
     <div className={styles.header}>
       <div className={styles.left}>
-        <h1>慕课书城</h1>
+        <h1>JM书城</h1>
       </div>
       <div className={styles.right}>
         <Link to="/search">

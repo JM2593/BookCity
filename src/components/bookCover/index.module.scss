@@ -1,0 +1,12 @@
+.bookCover{
+    --width:69px;
+    --height:95px;
+    --radius:5px;
+    font-size: var(--ygm-font-size-m);
+
+    .coverImage{
+        width: var(--width);
+        height: var(--height);
+        border-radius: var(--radius);
+    }
+}

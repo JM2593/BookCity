@@ -13,6 +13,9 @@ import { px2rem } from '@/utils/unit';
 
 
 import api from '@/pages/home/api'
+import Recommend from '@/pages/home/components/recommend';
+import LimitedRead from '@/pages/home/components/limitedRead';
+import Ranking from '@/pages/home/components/ranking';
 
 const Index: React.FC = () => {
 const {data,error} = useRequest<any>({url:api.getHomeData})
@@ -36,8 +39,11 @@ const {data,error} = useRequest<any>({url:api.getHomeData})
           ))
         }
       </Swiper>
-      <NavBar></NavBar>
-      <Popular></Popular>
+        <NavBar />
+        <Popular />
+        <Recommend />
+        <LimitedRead />
+        <Ranking />
      </Space>
     </div>
   );

@@ -38,6 +38,10 @@ const Router: React.FC = React.memo(() => {
       element: <Booklist />,
     },
     {
+      path: '/book/:bookId',
+      element: <Detail />,
+    },
+    {
       path: '/book/:bookId/:chapterId',
       element: <Chapter />,
     },
